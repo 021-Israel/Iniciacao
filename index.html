@@ -20,8 +20,8 @@
         <section class="input-section">
             <h2 class="section-title">Digite o nome dos seus amigos</h2>
             <div class="input-wrapper">
-                <input type="text" id="amigo" class="input-name" placeholder="Digite um nome">
-                <button class="button-add" onclick="adicionarAmigo()">Adicionar</button>
+                <input type="text" id="amigo" class="input-name" placeholder="Digite o nome de um amigo">
+                <button class="button-add" onclick="adicionarAmigo()">Adicionar Amigo</button>
             </div>
            
             <ul id="listaAmigos" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
@@ -33,6 +33,11 @@
                     Sortear amigo
                 </button>
             </div>
+            <h2>Amigos:</h2>
+            <ul id="listaAmigos"></ul>
+        
+            <h2>Amigo Sorteado:</h2>
+            <p id="amigoAleatorio"></p>
         </section>
     </main>
 
