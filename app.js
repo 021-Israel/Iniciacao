@@ -8,7 +8,7 @@ function adicionarAmigo() {
     const nomeAmigo = amigoInput.value.trim();
 
     if (nomeAmigo === ' ') {
-        alert('Por favor, insira um nome.');
+        alert("Por favor, insira um nome.");
     } else {
         amigos.push(nomeAmigo);        
     }
