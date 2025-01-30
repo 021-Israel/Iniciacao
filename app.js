@@ -1,39 +1,43 @@
-//O principal objetivo deste desafio é fortalecer suas habilidades em lógica de programação. Aqui você deverá desenvolver a lógica para resolver o problema.
-//Função Lista de amigos 
+// Variáveis
 let arrayAmigos = [];
 const resultadoSorteio = document.getElementById("amigoAleatorio");
 
-//Adicionar amigos
+// Função para adicionar amigos
 function adicionarAmigo() {
     const amigoInput = document.getElementById("amigo").value.trim();
     if (amigoInput === "") {
         alert("Por favor, insira um nome.");
-        return
+        return;
     } else {
         arrayAmigos.push(amigoInput);
         console.log(arrayAmigos);
+
+        // Atualiza a lista de amigos na tela
         const lista = document.getElementById("listaAmigos");
-        lista.innerHTML = `$(arrayAmigos)`  
+        lista.innerHTML = ""; // Limpa a lista antes de atualizar
+        arrayAmigos.forEach(amigo => {
+            const li = document.createElement("li");
+            li.textContent = amigo;
+            lista.appendChild(li);
+        });
+
+        // Limpa o campo de input após adicionar
+        document.getElementById("amigo").value = "";
     }
 }
 
-//Função para sortear amigos
- function sortearAmigo() {
-     //verificar se tem amigo disponivel
+// Função para sortear amigo
+function sortearAmigo() {
+    // Verifica se há amigos disponíveis para sortear
     if (arrayAmigos.length === 0) {
-        botaoResultado.innerHTML = 'Nenhum amigo disponivel para sortear.';
-        return
+        resultadoSorteio.innerHTML = 'Nenhum amigo disponível para sortear.';
+        return;
     }
-    const botaoResultado = document.getElementById('amigoAleatorio');
 
-   
- }
+    // Sorteia um amigo aleatório
+    const randomIndex = Math.floor(Math.random() * arrayAmigos.length);
+    const amigoAleatorio = arrayAmigos[randomIndex];
 
-// Gera um índice aleatório
-const randomIndex = Math.floor(Math.random() * amigos.length);
-    
-// Obtém o nome sorteado
-const amigoAleatorio = amigos[randomIndex];
-
-// Mostra o resultado
-botaoResultado.innerHTML = `Amigo sorteado: ${amigoAleatorio}`;
+    // Exibe o resultado do sorteio
+    resultadoSorteio.innerHTML = `Amigo sorteado: ${amigoAleatorio}`;
+}
